@@ -186,11 +186,8 @@ type Report struct {
 	Compiler     string    `json:"compiler" metric:"builder,gaugeVec:compiler"`
 	Builder      string    `json:"builder" metric:"builder,gaugeVec:builder"`
 	Distribution string    `json:"distribution" metric:"builder,gaugeVec:distribution"`
-	City         string    `json:"city" metric:"location,gaugeVec:city"`
 	Country      string    `json:"country" metric:"location,gaugeVec:country"`
 	CountryCode  string    `json:"countryCode" metric:"location,gaugeVec:countryCode"`
-	Latitude     string    `json:"latitude" metric:"location,gaugeVec:latitude"`
-	Longitude    string    `json:"longitude" metric:"location,gaugeVec:longitude"`
 	MajorVersion string    `json:"majorVersion" metric:"reports_by_major_total,gaugeVec:version"`
 }
 

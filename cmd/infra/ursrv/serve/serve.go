@@ -322,11 +322,8 @@ func (s *server) addReport(rep *contract.Report) bool {
 	if s.geo != nil {
 		if ip := net.ParseIP(rep.Address); ip != nil {
 			if city, err := s.geo.City(ip); err == nil {
-				rep.City = city.City.Names["en"]
 				rep.Country = city.Country.Names["en"]
 				rep.CountryCode = city.Country.IsoCode
-				rep.Latitude = fmt.Sprintf("%.05f", city.Location.Latitude)
-				rep.Longitude = fmt.Sprintf("%.05f", city.Location.Longitude)
 			}
 		}
 	}
@@ -335,9 +332,6 @@ func (s *server) addReport(rep *contract.Report) bool {
 	}
 	if rep.CountryCode == "" {
 		rep.CountryCode = "ZZ"
-	}
-	if rep.City == "" {
-		rep.City = "Unknown"
 	}
 
 	rep.Version = transformVersion(rep.Version)
