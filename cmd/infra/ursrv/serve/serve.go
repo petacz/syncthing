@@ -325,6 +325,8 @@ func (s *server) addReport(rep *contract.Report) bool {
 				rep.City = city.City.Names["en"]
 				rep.Country = city.Country.Names["en"]
 				rep.CountryCode = city.Country.IsoCode
+				rep.Latitude = fmt.Sprintf("%.05f", city.Location.Latitude)
+				rep.Longitude = fmt.Sprintf("%.05f", city.Location.Longitude)
 			}
 		}
 	}
